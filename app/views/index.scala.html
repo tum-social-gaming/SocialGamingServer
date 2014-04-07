@@ -1,0 +1,25 @@
+@(message: String)
+
+@main("Welcome to Play") {
+	
+	<h2> @message - Game statistics:</h2><br>
+	<div>
+   @for(game <- getGames) {
+   	<p>
+   		<li> <b>@game.date :</b> 
+   			<p> @game.getState : @game.firstUserName vs. @game.secondUserName -> winner: @game.winnerName </p>
+   		</li>
+   	</p>
+   }
+   </div>
+	
+	@***** Original site: 
+    @play20.welcome(message, style = "Java")
+	**************************************@
+}
+
+@getGames = @{
+	import scala.collection.JavaConverters._
+	
+	models.Game.findAllGames().asScala.toSeq.reverse
+}
