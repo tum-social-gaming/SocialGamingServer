@@ -5,10 +5,21 @@ import play.libs.Json;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+/**
+* This class is used for convenience to generate the specific messages used to 
+* communicate to the client application.
+*
+* The pattern is always the same:
+* type - for identifying the message type (event)
+* subtype - for indicating the nature of the event
+* and additional payload
+* 
+* The messages are always encoded into a JSON that is sent to the client application
+*
+*
+*/
 
 public class PushMessages {
-	// always same pattern: type with either game...
-	// subtype
 	
 	public static ObjectNode createGameRequestMessage(Game game){
 		ObjectNode json = Json.newObject(); 
