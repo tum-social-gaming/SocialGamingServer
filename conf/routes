@@ -8,33 +8,14 @@ GET     /                           controllers.Application.index()
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
-
-# User Management - TODO: alive ping for user timeout
-#GET	 /users				   controllers.Application.getUsers()
-#GET	 /users/:id     	   controllers.Application.getUser(id: Long)
-
-
-# register user mit android cloud messaging id
-#POST /users/:id/:name/:deviceToken/:longitude/:latitude/register   controllers.Application.registerUser(id: Long, name: String, deviceToken: String, longitude: Double, latitude: Double)
-
-#POST /users/:id/unregister controllers.Application.unregisterUser(id: Long)
-
+# User functions: login, get users and update positions
 POST /users/:faceBookAuthToken/:googleCDSToken/:longitude/:latitude/login	controllers.Application.loginUser(faceBookAuthToken: String, googleCDSToken: String, longitude: Double, latitude: Double)
 GET /users/:facebookID/getNearbyUsers controllers.Application.getNearbyUsers(facebookID: String)
 
-
-# user get points....? dann aber kein unregister sondern nur alive/update
-
 # Positioning
-POST /positions/:facebookId/:latitude/:longitude/update controllers.Application.updateUserLocation(facebookId: String, latitude: Double, longitude: Double)
-#GET  /positions/:id    controllers.Application.getPosition(id: Long)
+POST /positions/:facebookId/:longitude/:latitude/update controllers.Application.updateUserLocation(facebookId: String, longitude: Double, latitude: Double)
 
-# Battle - herausfordern, accept, decline with battle ID, -> push msgs
-# 			gesture: mit time und battle ID 
-#			winner,  punkte , punkte in datenbank sammeln
-
-#POST /game/:id/:msg/message controllers.Application.sendMessage(id: Long, msg: String)
-
+# Game requests and event triggering
 POST /games/:facebookID/requestNew controllers.Application.requestNewGame(facebookID: String)
 POST /games/:gameID/:facebookID/abort controllers.Application.abortGame(gameID: String, facebookID: String)
 POST /games/:gameID/:facebookID/accept controllers.Application.acceptGame(gameID: String, facebookID: String)

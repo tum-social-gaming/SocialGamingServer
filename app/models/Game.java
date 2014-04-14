@@ -227,6 +227,8 @@ public class Game {
     
     public void abort(String abortingUserFacebookID) throws IOException {
     	this.aborted = true;
+    	this.state = StateAborted;
+    	this.winnerName ="aborted";
     	this.update();
     	   	
     	User user1 = User.findByFacebookID(this.firstUserFbID);

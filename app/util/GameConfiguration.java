@@ -8,12 +8,12 @@ package util;
  */
 public class GameConfiguration {
 	// Facebook App credentials
-	public static String fbAppID = "1449813248586394";	
-	public static String fbAppSecret  = "8e5d8e08c05b7195fa946c31fc19db73";
+	public static String fbAppID = "";	
+	public static String fbAppSecret  = "";
 	
 	// Google App credentials
-	public static String googleAppID = "1085161367964";
-	public static String googleAppKey = "AIzaSyBllofTlAQ-lbs-fhnaJezzGbA1T5q8oUY";
+	public static String googleAppID = "";
+	public static String googleAppKey = "";
 	
 	// limits the maximum distance for user lookups (meters)
 	public static double MaxDistanceOfUserForNearbyUsers = 100.0;
