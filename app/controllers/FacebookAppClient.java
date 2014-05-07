@@ -48,8 +48,11 @@ public class FacebookAppClient {
 		Connection<Post> myFeed = fbc.fetchConnection("me/feed", Post.class);
 
 		Logger.info("Count of my friends: " + myFriends.getData().size());
-		Logger.info("First item in my feed: " + myFeed.getData().get(0));
-		
+
+		if(myFeed.getData().size() > 0) {
+			Logger.info("First item in my feed: " + myFeed.getData().get(0));
+		}		
+
 		User thatsMe = fbc.fetchObject("me", User.class);
 		
 		Logger.info("User: "+thatsMe);
