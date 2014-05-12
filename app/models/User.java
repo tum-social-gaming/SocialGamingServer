@@ -127,7 +127,7 @@ public class User {
     	// this DB request also serves as an example for a slightly more complex mongoDB request making use
     	// of the "native" mongoDB API
     	List<User> results = Lists.newArrayList(users().find("{loc: {$geoNear : {$geometry : {type: 'Point', " +
-                "coordinates: # }}, $maxDistance: # }, participatesInGame: true}", loc, maxDistance).limit(limit) // 
+                "coordinates: # }, $maxDistance: # }}, participatesInGame: true}", loc, maxDistance).limit(limit) // 
                 .as(User.class));
     	
     	return results;
