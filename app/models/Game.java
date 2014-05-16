@@ -121,7 +121,7 @@ public class Game {
     		
     	} else if(friends.size() >= 1) {
     		
-    		ret = friends.get( random.nextInt(friends.size()-1) );
+    		ret = friends.get( random.nextInt(friends.size()) );
     		
     	}
     	
